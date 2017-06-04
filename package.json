@@ -1,0 +1,32 @@
+{
+  "name": "realm-react",
+  "version": "0.0.1",
+  "description": "A higher-order component for listening to Realm data in React components.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasonmerino/realm-react.git"
+  },
+  "keywords": [
+    "realm",
+    "reactjs"
+  ],
+  "author": "Jason Merino",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jasonmerino/realm-react/issues"
+  },
+  "homepage": "https://github.com/jasonmerino/realm-react#readme",
+  "dependencies": {
+    "camelcase": "4.1.0",
+    "hoist-non-react-statics": "1.2.0",
+    "pluralize": "5.0.0",
+    "prop-types": "15.5.10"
+  },
+  "devDependencies": {
+    "jest": "20.0.4"
+  }
+}
