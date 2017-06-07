@@ -52,3 +52,7 @@ export default connectRealm(MyComponent, {
   },
 });
 ```
+
+## Examples
+
+Check out the [example react native app](react-native-example/README.md) to see realm-react in use.
