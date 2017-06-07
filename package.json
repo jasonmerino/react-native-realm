@@ -4,7 +4,7 @@
   "description": "A higher-order component for listening to Realm data in React components.",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "./node_modules/.bin/jest"
   },
   "repository": {
     "type": "git",

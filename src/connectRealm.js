@@ -8,7 +8,6 @@ function getResultsName(schema) {
   return pluralize(camelcase(schema), 2);
 }
 
-// This function takes a component...
 function connectRealm(WrappedComponent, options) {
   class ConnectedRealmComponent extends React.Component {
     static contextTypes = {
@@ -37,14 +36,24 @@ function connectRealm(WrappedComponent, options) {
       });
     }
 
-    updateView() {
+    getProps = () => {
+      if (options && options.mapToProps) {
+        return options.mapToProps(this.results, this.context.reactRealmInstance);
+      }
+      return {};
+    };
+
+    updateView = () => {
       this.forceUpdate();
-    }
+    };
 
     render() {
-      // ... and renders the wrapped component with the fresh data!
-      // Notice that we pass through any additional props
-      return <WrappedComponent realm={this.results} {...this.props} />;
+      return (
+        <WrappedComponent
+          {...this.getProps()}
+          {...this.props}
+        />
+      );
     }
   }
 
