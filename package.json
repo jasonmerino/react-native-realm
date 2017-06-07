@@ -1,6 +1,6 @@
 {
   "name": "realm-react",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A higher-order component for listening to Realm data in React components.",
   "main": "index.js",
   "scripts": {
