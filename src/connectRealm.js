@@ -20,8 +20,6 @@ function connectRealm(WrappedComponent, options) {
       this.schemaList = options.schemas || [];
       this.results = {};
 
-      this.updateView = this.updateView.bind(this);
-
       this.schemaList.forEach(schema => {
         this.results[
           getResultsName(schema)
@@ -38,7 +36,10 @@ function connectRealm(WrappedComponent, options) {
 
     getProps = () => {
       if (options && options.mapToProps) {
-        return options.mapToProps(this.results, this.context.reactRealmInstance);
+        return options.mapToProps(
+          this.results,
+          this.context.reactRealmInstance
+        );
       }
       return {};
     };
@@ -48,12 +49,7 @@ function connectRealm(WrappedComponent, options) {
     };
 
     render() {
-      return (
-        <WrappedComponent
-          {...this.getProps()}
-          {...this.props}
-        />
-      );
+      return <WrappedComponent {...this.getProps()} {...this.props} />;
     }
   }
 

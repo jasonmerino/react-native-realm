@@ -12,7 +12,7 @@ import {
   View,
   StyleSheet,
 } from 'react-native';
-import { connectRealm } from 'realm-react';
+import { connectRealm } from 'react-native-realm';
 
 const styles = StyleSheet.create({
   screen: {

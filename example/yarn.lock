@@ -3270,7 +3270,7 @@ readline2@^1.0.1:
     is-fullwidth-code-point "^1.0.0"
     mute-stream "0.0.5"
 
-"realm-react@file:../":
+"react-native-realm@file:../":
   version "0.0.1"
   dependencies:
     camelcase "4.1.0"

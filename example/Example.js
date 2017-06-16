@@ -8,7 +8,7 @@ import React, { Component } from 'react';
 import {
   AppRegistry,
 } from 'react-native';
-import { RealmProvider } from 'realm-react';
+import { RealmProvider } from 'react-native-realm';
 import ConnectedExample from './ConnectedExample';
 import realm from './RealmExample';
 

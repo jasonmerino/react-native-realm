@@ -1,7 +1,7 @@
 
 # React Native Example App
 
-See how realm-react works in react native.
+See how react-native-realm works.
 
 ## Setup
 

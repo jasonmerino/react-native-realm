@@ -1,25 +1,27 @@
 {
-  "name": "realm-react",
+  "name": "react-native-realm",
   "version": "0.1.0",
-  "description": "A higher-order component for listening to Realm data in React components.",
+  "description": "A higher-order component for listening to Realm data in React Native components.",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/jest"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jasonmerino/realm-react.git"
+    "url": "git+https://github.com/jasonmerino/react-native-realm.git"
   },
   "keywords": [
     "realm",
-    "reactjs"
+    "react native",
+    "ios",
+    "android"
   ],
   "author": "Jason Merino",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jasonmerino/realm-react/issues"
+    "url": "https://github.com/jasonmerino/react-native-realm/issues"
   },
-  "homepage": "https://github.com/jasonmerino/realm-react#readme",
+  "homepage": "https://github.com/jasonmerino/react-native-realm#readme",
   "dependencies": {
     "camelcase": "4.1.0",
     "hoist-non-react-statics": "1.2.0",

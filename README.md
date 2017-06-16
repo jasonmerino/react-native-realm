@@ -1,6 +1,6 @@
-# realm-react
+# react-native-realm
 
-A higher-order component for listening to Realm data in React components.
+A higher-order component for listening to Realm data in React Native components.
 
 ## Usage
 
@@ -19,7 +19,7 @@ render() {
 ```
 
 ```js
-import { connectRealm } from 'realm-react';
+import { connectRealm } from 'react-native-realm';
 
 class MyComponent extends Component {
 
@@ -55,4 +55,4 @@ export default connectRealm(MyComponent, {
 
 ## Examples
 
-Check out the [example react native app](react-native-example/README.md) to see realm-react in use.
+Check out the [example react native app](example/README.md) to see react-native-realm in use.
