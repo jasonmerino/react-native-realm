@@ -7,6 +7,7 @@ A higher-order component for listening to Realm data in React Native components.
 ```js
 // the file you use to wire up your realm schemas, etc.
 import realm from './path/to/your/realm/file';
+import { RealmProvider } from 'react-native-realm';
 
 ...
 // render function of your top level component for your app
