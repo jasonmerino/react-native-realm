@@ -1,5 +1,7 @@
 # react-native-realm
 
+[![CircleCI](https://circleci.com/gh/jasonmerino/react-native-realm.svg?style=svg)](https://circleci.com/gh/jasonmerino/react-native-realm)
+
 A higher-order component for listening to Realm data in React Native components.
 
 ## Usage
