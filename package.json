@@ -53,9 +53,5 @@
     "react": "15.6.1",
     "react-native": "0.45.1",
     "regenerator-runtime": "0.10.5"
-  },
-  "peerDependencies": {
-    "react-native": ">= 0.x.x",
-    "realm": ">= 1.x.x"
   }
 }
