@@ -6,6 +6,7 @@ Item.schema = {
   properties: {
     name:  'string',
     date: 'date',
+    id: 'string'
   },
 };
 

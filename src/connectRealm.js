@@ -4,7 +4,7 @@ import pluralize from 'pluralize';
 import camelcase from 'camelcase';
 import hoistNonReactStatic from 'hoist-non-react-statics';
 
-function getResultsName(schema) {
+export function getResultsName(schema) {
   return pluralize(camelcase(schema), 2);
 }
 
@@ -15,7 +15,7 @@ function connectRealm(WrappedComponent, options) {
     };
 
     constructor(props, context) {
-      super(props);
+      super(props, context);
 
       this.schemaList = options.schemas || [];
       this.results = {};
@@ -35,10 +35,11 @@ function connectRealm(WrappedComponent, options) {
     }
 
     getProps = () => {
-      if (options && options.mapToProps) {
+      if (options && typeof options.mapToProps === 'function') {
         return options.mapToProps(
           this.results,
-          this.context.reactRealmInstance
+          this.context.reactRealmInstance,
+          this.props,
         );
       }
       return {};

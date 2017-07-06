@@ -1,12 +1,37 @@
 # react-native-realm
 
+[![CircleCI](https://circleci.com/gh/jasonmerino/react-native-realm.svg?style=svg)](https://circleci.com/gh/jasonmerino/react-native-realm)
+
 A higher-order component for listening to Realm data in React Native components.
 
 ## Usage
 
 ```js
-// the file you use to wire up your realm schemas, etc.
-import realm from './path/to/your/realm/file';
+// realm.js
+
+class Person extends Realm.Object {}
+Person.schema = {
+  name: 'Person',
+  properties: {
+    firstName: {
+      type: 'string',
+    },
+    lastName: {
+      type: 'string',
+    },
+  },
+};
+
+return new Realm({
+  schema: [Person],
+});
+
+```
+
+```js
+// App.js
+
+import realm from './realm';
 import { RealmProvider } from 'react-native-realm';
 
 ...
@@ -20,6 +45,8 @@ render() {
 ```
 
 ```js
+// MyComponent.js
+
 import { connectRealm } from 'react-native-realm';
 
 class MyComponent extends Component {
@@ -40,7 +67,7 @@ class MyComponent extends Component {
 
 export default connectRealm(MyComponent, {
   schemas: ['Person'],
-  mapToProps(results, realm) {
+  mapToProps(results, realm, ownProps) {
     // the object that is returned from the mapToProps function
     // will be merged into the components props
     return {

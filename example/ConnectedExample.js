@@ -12,7 +12,9 @@ import {
   View,
   StyleSheet,
 } from 'react-native';
+import uuid from 'uuid';
 import { connectRealm } from 'react-native-realm';
+import ConnectedExampleItem from './ConnectedExampleItem';
 
 const styles = StyleSheet.create({
   screen: {
@@ -20,13 +22,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     backgroundColor: '#2a2a2a',
     flex: 1,
-  },
-  item: {
-    height: 44,
-    justifyContent: 'center',
-    paddingHorizontal: 10,
-    marginTop: 10,
-    backgroundColor: 'cyan',
   },
   add: {
     height: 44,
@@ -50,15 +45,9 @@ class ConnectedExample extends Component {
       realm.create('Item', {
         name: this.count.toString(),
         date: new Date(),
+        id: uuid.v4(),
       });
       this.count++;
-    });
-  };
-
-  onPressRemoveItem = (item) => {
-    const { realm } = this.props;
-    realm.write(() => {
-      realm.delete(item);
     });
   };
 
@@ -69,13 +58,11 @@ class ConnectedExample extends Component {
           <Text style={styles.addText}>Add Item</Text>
         </TouchableOpacity>
         <ScrollView>
-          {this.props.items.map((item, index) => {
-            return (
-              <TouchableOpacity key={index} onPress={() => this.onPressRemoveItem(item)} style={styles.item}>
-                <Text>{item.name}</Text>
-              </TouchableOpacity>
-            )
-          })}
+          {this.props.items.map((item) => (
+            <View key={item.id}>
+              <ConnectedExampleItem id={item.id} />
+            </View>
+          ))}
         </ScrollView>
       </View>
     );

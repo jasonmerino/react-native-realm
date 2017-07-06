@@ -1,10 +1,10 @@
 
-# React Native Example App
+# Example App
 
 See how react-native-realm works.
 
 ## Setup
 
-`npm install`
+`npm install --production`
 
 `react-native run-ios`
