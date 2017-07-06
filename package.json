@@ -1,6 +1,6 @@
 {
   "name": "react-native-realm",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A higher-order component for listening to Realm data in React Native components.",
   "main": "index.js",
   "scripts": {
