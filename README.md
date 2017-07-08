@@ -8,6 +8,7 @@ A higher-order component for listening to Realm data in React Native components.
 
 ```js
 // realm.js
+import Realm from 'realm';
 
 class Person extends Realm.Object {}
 Person.schema = {
