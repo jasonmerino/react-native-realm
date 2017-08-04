@@ -1,8 +1,8 @@
-import PropTypes from "prop-types";
-import React from "react";
-import pluralize from "pluralize";
-import camelcase from "camelcase";
-import hoistNonReactStatic from "hoist-non-react-statics";
+import PropTypes from 'prop-types';
+import React from 'react';
+import pluralize from 'pluralize';
+import camelcase from 'camelcase';
+import hoistNonReactStatic from 'hoist-non-react-statics';
 
 export function getResultsName(schema) {
   return pluralize(camelcase(schema), 2);
@@ -11,7 +11,7 @@ export function getResultsName(schema) {
 function connectRealm(WrappedComponent, options) {
   class ConnectedRealmComponent extends React.Component {
     static contextTypes = {
-      reactRealmInstance: PropTypes.object
+      reactRealmInstance: PropTypes.object,
     };
 
     constructor(props, context) {
@@ -24,18 +24,10 @@ function connectRealm(WrappedComponent, options) {
     }
 
     componentWillReceiveProps(nextProps, nextContext) {
-      // do comparison of realm
-      console.log(
-        "current context",
-        JSON.stringify(this.context.reactRealmInstance, null, 2)
-      );
-      console.log(
-        "next context",
-        JSON.stringify(nextContext.reactRealmInstance, null, 2)
-      );
+      // if realm changes
       if (
-        context.reactRealmInstance.identity !==
-        nextContext.reactRealmInstance.identity
+        this.context.reactRealmInstance.path !==
+        nextContext.reactRealmInstance.path
       ) {
         this.removeListeners();
         this.addListeners(nextContext);
@@ -62,11 +54,11 @@ function connectRealm(WrappedComponent, options) {
     };
 
     getProps = () => {
-      if (options && typeof options.mapToProps === "function") {
+      if (options && typeof options.mapToProps === 'function') {
         return options.mapToProps(
           this.results,
           this.context.reactRealmInstance,
-          this.props
+          this.props,
         );
       }
       return {};
