@@ -20,19 +20,38 @@ function connectRealm(WrappedComponent, options) {
       this.schemaList = options.schemas || [];
       this.results = {};
 
-      this.schemaList.forEach(schema => {
-        this.results[
-          getResultsName(schema)
-        ] = context.reactRealmInstance.objects(schema);
-        this.results[getResultsName(schema)].addListener(this.updateView);
-      });
+      this.addListeners(context);
+    }
+
+    componentWillReceiveProps(nextProps, nextContext) {
+      // if realm changes
+      if (
+        this.context.reactRealmInstance.path !==
+        nextContext.reactRealmInstance.path
+      ) {
+        this.removeListeners();
+        this.addListeners(nextContext);
+      }
     }
 
     componentWillUnmount() {
+      this.removeListeners();
+    }
+
+    addListeners = context => {
+      this.schemaList.forEach(schema => {
+        const name = getResultsName(schema);
+        this.results[name] = context.reactRealmInstance.objects(schema);
+        this.results[name].addListener(this.updateView);
+      });
+    };
+
+    removeListeners = () => {
       this.schemaList.forEach(schema => {
         this.results[getResultsName(schema)].removeListener(this.updateView);
       });
-    }
+      this.results = {};
+    };
 
     getProps = () => {
       if (options && typeof options.mapToProps === 'function') {
